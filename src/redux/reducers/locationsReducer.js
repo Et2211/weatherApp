@@ -1,7 +1,6 @@
 import actiontypes from "../actionType"
 
 const initialState = {
-  counter: 1
 }
 
 export default (state = initialState, action) => {
@@ -9,7 +8,7 @@ export default (state = initialState, action) => {
    case actiontypes.LOAD_LOCATIONS:
     return {
       ...state,
-      counter: state.counter + 1
+      locations: action.payload
     }
    default:
     return state
