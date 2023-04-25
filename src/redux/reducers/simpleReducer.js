@@ -1,10 +1,12 @@
+import actiontypes from "../actionType"
+
 const initialState = {
   counter: 1
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-   case 'SIMPLE_ACTION':
+   case actiontypes.LOAD_LOCATIONS:
     return {
       ...state,
       counter: state.counter + 1
