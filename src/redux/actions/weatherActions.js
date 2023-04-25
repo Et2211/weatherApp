@@ -1,8 +1,9 @@
 import actiontypes from "../actionType"
 
-export const fetchWeather = () => dispatch => {
+export const fetchWeather = (data) => dispatch => {
+  console.log(data)
   dispatch({
    type: actiontypes.LOAD_LOCATIONS,
-   payload: 'result_of_simple_action'
+   payload: data
   })
  }
