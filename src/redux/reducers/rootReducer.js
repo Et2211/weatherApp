@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import simpleReducer from './simpleReducer';
-
-
+import locationsReducer from './locationsReducer';
 
 export default combineReducers({
- simpleReducer
+  locationsReducer
 });
