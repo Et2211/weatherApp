@@ -1,17 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import { connect, useSelector } from 'react-redux';
-import { simpleAction } from './actions/simpleActions';
+import { fetchWeather } from './redux/actions/weatherActions';
 import store from './store'
+import { getRequest } from './api';
 
 function App(props) {
-  console.log(useSelector(state => state))
+  
   const counter = (useSelector(state => state.simpleReducer.counter))
-  console.log(counter)
 
   const simpleFunction = (event) => {
-    console.log(props)
-    props.simpleAction();
+    props.fetchWeather();
   }
 
 
@@ -28,7 +27,7 @@ const mapStateToProps = state => ({
  })
 
 const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
+  fetchWeather: () => dispatch(fetchWeather())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
