@@ -1,25 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import { connect, useSelector } from 'react-redux';
+import { simpleAction } from './actions/simpleActions';
+import store from './store'
 
-function App() {
+function App(props) {
+  console.log(useSelector(state => state))
+  const counter = (useSelector(state => state.simpleReducer.counter))
+  console.log(counter)
+
+  const simpleFunction = (event) => {
+    console.log(props)
+    props.simpleAction();
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button onClick={simpleFunction}>Test redux action</button>
+        <p>{counter}</p>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  ...state
+ })
+
+const mapDispatchToProps = dispatch => ({
+  simpleAction: () => dispatch(simpleAction())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
