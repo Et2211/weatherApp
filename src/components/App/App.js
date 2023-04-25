@@ -13,10 +13,6 @@ function App(props) {
   useEffect(()=>{
     refreshLocation()
   }, [])
-  
-  console.log(useSelector(state => state))
-
-  const counter = (useSelector(state => state.locationsReducer.counter))
 
   const refreshLocation = (event) => {
     getRequest('/city-data').then(response=>{
