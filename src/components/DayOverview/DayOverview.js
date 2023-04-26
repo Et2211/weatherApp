@@ -2,8 +2,6 @@
 
 function DayOverview (props) {
 
-
-
   return (
     <>
     <li class="nav-item" role="presentation" onClick={()=>(props.setSelectedDay(props.day))}>
