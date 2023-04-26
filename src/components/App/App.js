@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App(props) {
 
   const dispatch = useDispatch()
-  const cityId = useState(1)
+  const [cityId, setCityId] = useState(1)
 
   const locations = useSelector(state=>state.locationsReducer.locations) 
   const weather = useSelector(state=>state.weatherReducer.weather) 
