@@ -2,10 +2,6 @@ import DayOverview from "../DayOverview/DayOverview";
 import styles from './DaySelect.module.scss'
 function DaySelect(props) {
 
-
-
-  console.log(props.weather)
-
   const addDaysToToday = (daysToadd) => {
     return new Date(new Date().setDate(new Date().getDate() + daysToadd)); 
   }
