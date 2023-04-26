@@ -14,8 +14,14 @@ function App(props) {
     refreshLocation()
   }, [])
 
-  const refreshLocation = (event) => {
+  const getLocations = () => {
     getRequest('/city-data').then(response=>{
+      dispatch(fetchCities(response))
+    })
+  }
+
+  const getWeather = (cityId) => {
+    getRequest('/city-data/'+ cityId).then(response=>{
       dispatch(fetchWeather(response))
     })
   }
