@@ -1,15 +1,15 @@
 import actiontypes from "../actionType"
 
 const initialState = {
-  locations: {}
+  weather: {}
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-   case actiontypes.LOAD_LOCATIONS:
+   case actiontypes.LOAD_WEATHER:
     return {
       ...state,
-      locations: action.payload
+      weather: action.payload
     }
    default:
     return state
