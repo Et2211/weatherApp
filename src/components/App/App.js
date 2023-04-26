@@ -9,6 +9,8 @@ import Header from '../Header/Header';
 import DaySelect from '../DaySelect/DaySelect';
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 function App(props) {
 
@@ -39,10 +41,11 @@ function App(props) {
     <div className={styles.App}>
       <Header />
 
-
-      {weather && Object.keys(weather).length > 0 &&
-        <DaySelect locations={locations} weather={weather}/>
-      }
+      <div className='container'>
+        {weather && Object.keys(weather).length > 0 &&
+          <DaySelect locations={locations} weather={weather}/>
+        }
+      </div>
     </div>
   );
 }
