@@ -3,7 +3,7 @@ import styles from './Header.module.scss'
 function Header() {
 
   return (
-    <h1 className={styles.header}>Wagonex Weather App</h1>
+    <h1 className={styles.header}>Weather App</h1>
   );
 }
 
