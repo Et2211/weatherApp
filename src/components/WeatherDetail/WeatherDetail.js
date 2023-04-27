@@ -7,7 +7,6 @@ const customStyle ={
 }
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
-  console.log(className)
   return (
     <div
       className={className}
@@ -56,7 +55,6 @@ function WeatherDetail (props) {
 
             const icon = `https://openweathermap.org/img/wn/${weatherEvent.weather[0].icon}@4x.png`
             const celciusTemp =(weatherEvent.main.temp - 273.15).toFixed(0) 
-            console.log(time)
 
           return (
             <div>
