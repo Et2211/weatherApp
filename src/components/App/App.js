@@ -28,15 +28,28 @@ function App(props) {
   }, [])
 
   const getLocations = () => {
+    try {
     getRequest('/city-data').then(response=>{
       dispatch(fetchCities(response))
     })
+    } catch(e) {
+      console.log(e)
+    }
   }
 
-  const getWeather = (cityId) => {
-    getRequest('/city-data/'+ cityId).then(response=>{
+  const getWeather = (cityName) => {
+    getRequest('/get-weather/'+ cityName).then(response=>{
+      if(!response.error){
       dispatch(fetchWeather(response))
+        setError(0)
+        setCityName(cityName)
+        localStorage.setItem("location", cityName);
+      } else {
+        setError(1)
+        setErrorMessage(response.message)
+      }
     })
+
   }
 
   return (
