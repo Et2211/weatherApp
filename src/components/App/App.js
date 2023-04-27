@@ -17,7 +17,7 @@ import "slick-carousel/slick/slick-theme.css";
 function App(props) {
 
   const dispatch = useDispatch()
-  const [cityId, setCityId] = useState(1)
+  const [cityName, setCityName] = useState('')
   const [error, setError] = useState(0)
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -37,14 +37,14 @@ function App(props) {
 
   useEffect(()=>{
     getLocations()
-    getWeather(cityId)
-  }, [])
+    getWeather(cityName)
+  }, [cityName])
 
   const getLocations = () => {
     try {
-    getRequest('/city-data').then(response=>{
-      dispatch(fetchCities(response))
-    })
+      getRequest('/city-data').then(response=>{
+        dispatch(fetchCities(response))
+      })
     } catch(e) {
       console.log(e)
     }
@@ -53,7 +53,7 @@ function App(props) {
   const getWeather = (cityName) => {
     getRequest('/get-weather/'+ cityName).then(response=>{
       if(!response.error){
-      dispatch(fetchWeather(response))
+        dispatch(fetchWeather(response))
         setError(0)
         setCityName(cityName)
         localStorage.setItem("location", cityName);
