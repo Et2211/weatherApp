@@ -1,6 +1,6 @@
 import styles from './Header.module.scss'
 
-function Header(props) {
+function Header() {
 
   return (
     <h1 className={styles.header}>Wagonex Weather</h1>

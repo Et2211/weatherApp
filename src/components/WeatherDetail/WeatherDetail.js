@@ -21,13 +21,16 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, ...customStyle }}
+      style={{ ...customStyle }}
       onClick={onClick}
-    />
+    >
+      <i class="fas fa-angle-left"></i>
+    </div>
   );
 }
 
-function WeatherDetail (props) {
+
+function WeatherDetail ({selectedDay, day, weather}) {
 
   const settings = {
     dots: true,
@@ -42,12 +45,12 @@ function WeatherDetail (props) {
 
   return (
     <>
-      <div class={props.selectedDay == props.day ? "tab-pane fade show active" : "tab-pane fade"} id={"day"+props.day} role="tabpanel" aria-labelledby="home-tab">
+      <div class={selectedDay == day ? "tab-pane fade show active" : "tab-pane fade"} id={"day"+day} role="tabpanel" aria-labelledby="home-tab">
 
       <Slider {...settings}>
         
 
-        {props.weather.map(weatherEvent=> {
+        {weather.map(weatherEvent=> {
             let time = new Date(weatherEvent.dt*1000).getHours();
             const usePM = time > 12 ? true : false
 
@@ -66,7 +69,7 @@ function WeatherDetail (props) {
                   <p><b>{celciusTemp}&#8451;</b></p>
                 </div>
                   <p>{weatherEvent.weather[0].description}</p>
-                  <img src={icon} alt={props.weather[0].weather[0].description}></img>
+                  <img src={icon} alt={weather[0].weather[0].description}></img>
               </div>
             </div>
           )

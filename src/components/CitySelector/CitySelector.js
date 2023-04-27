@@ -1,18 +1,18 @@
 import styles from './CitySelector.module.scss'
 import { useState } from 'react';
 
-function CitySelector (props) {
+function CitySelector ({getWeather, cityName, error, errorMessage}) {
   const [searchInput, setSearchinput] = useState('')
 
   const searchSubmit = (e) => {
     setSearchinput('')
-    props.getWeather(searchInput)
+    getWeather(searchInput)
   }
   return (
     <>
       <div className="row justify-content-start">
         <div className="col-6 col-md-3">
-          <h2>{props.cityName}</h2>
+          <h2>{cityName}</h2>
         </div>
         <div className="col-6 col-md-3">
           <div class={"input-group"}>
@@ -24,8 +24,8 @@ function CitySelector (props) {
               <i class="fas fa-search"></i>
             </button>
           </div>
-          {props.error == 1 && 
-            <p className={styles.error}>{props.errorMessage}</p>
+          {error == 1 && 
+            <p className={styles.error}>{errorMessage}</p>
           }
             
         </div>
