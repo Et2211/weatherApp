@@ -2,11 +2,13 @@ import styles from './App.module.scss';
 import { useState } from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { fetchCities, fetchWeather } from '../../redux/actions/weatherActions';
-import store from '../../store'
 import { getRequest } from '../../api';
 import { useEffect } from 'react';
+
 import Header from '../Header/Header';
 import DaySelect from '../DaySelect/DaySelect';
+import CitySelector from '../CitySelector/CitySelector';
+
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "slick-carousel/slick/slick.css"; 
@@ -42,6 +44,9 @@ function App(props) {
       <Header />
 
       <div className='container'>
+        {locations && Object.keys(locations).length > 0 &&
+          <CitySelector locations={locations} cityName={cityName} setCityName={setCityName} getWeather={getWeather} error={error} errorMessage={errorMessage}/>
+        }
         {weather && Object.keys(weather).length > 0 &&
           <DaySelect locations={locations} weather={weather}/>
         }
