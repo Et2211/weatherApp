@@ -51,9 +51,11 @@ function App(props) {
   }
 
   const getWeather = (cityName) => {
-    getRequest('/get-weather/'+ cityName).then(response=>{
-      if(!response.error){
-        dispatch(fetchWeather(response))
+    if (cityName != '') {
+
+      getRequest('/get-weather/'+ cityName).then(response=>{
+        if(!response.error){
+          dispatch(fetchWeather(response))
         setError(0)
         setCityName(cityName)
         localStorage.setItem("location", cityName);
@@ -62,6 +64,10 @@ function App(props) {
         setErrorMessage(response.message)
       }
     })
+  } else {
+    setError(1)
+    setErrorMessage('Please enter a city')
+  }
 
   }
 
