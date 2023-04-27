@@ -70,12 +70,17 @@ function App(props) {
       <Header />
 
       <div className='container'>
-        {locations && Object.keys(locations).length > 0 &&
-          <CitySelector locations={locations} cityName={cityName} setCityName={setCityName} getWeather={getWeather} error={error} errorMessage={errorMessage}/>
-        }
-        {weather && Object.keys(weather).length > 0 &&
-          <DaySelect locations={locations} weather={weather}/>
-        }
+        <div className='my-5'>
+          {locations && Object.keys(locations).length > 0 &&
+            <CitySelector locations={locations} cityName={cityName} setCityName={setCityName} getWeather={getWeather} error={error} errorMessage={errorMessage}/>
+          }
+        </div>
+        <div className='my-5'>
+          {weather && Object.keys(weather).length > 0 &&
+            <DaySelect locations={locations} weather={weather}/>
+          }
+        </div>
+
       </div>
     </div>
   );

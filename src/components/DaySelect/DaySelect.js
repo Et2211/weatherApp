@@ -19,7 +19,7 @@ function DaySelect(props) {
 
   return (
     <div >
-      <ul class={"nav nav-tabs "+ styles.tabs} id="myTab" role="tablist">
+      <ul class={"nav nav-tabs mb-5 "+ styles.tabs} id="myTab" role="tablist">
         <DayOverview day={0} selectedDay={selectedDay} setSelectedDay={setSelectedDay} weather={props.weather.list.filter(weatherEvent=>checkIfDatesMatch(new Date(weatherEvent.dt*1000), addDaysToToday(0)))} />
         <DayOverview day={1} selectedDay={selectedDay} setSelectedDay={setSelectedDay} weather={props.weather.list.filter(weatherEvent=>checkIfDatesMatch(new Date(weatherEvent.dt*1000), addDaysToToday(1)))} />
         <DayOverview day={2} selectedDay={selectedDay} setSelectedDay={setSelectedDay} weather={props.weather.list.filter(weatherEvent=>checkIfDatesMatch(new Date(weatherEvent.dt*1000), addDaysToToday(2)))} />
