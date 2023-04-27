@@ -18,6 +18,8 @@ function App(props) {
 
   const dispatch = useDispatch()
   const [cityId, setCityId] = useState(1)
+  const [error, setError] = useState(0)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const locations = useSelector(state=>state.locationsReducer.locations) 
   const weather = useSelector(state=>state.weatherReducer.weather) 
