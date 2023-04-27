@@ -4,6 +4,8 @@ import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import configureStore from './store';
+import 'mdb-ui-kit/css/mdb.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const store = configureStore()
 
