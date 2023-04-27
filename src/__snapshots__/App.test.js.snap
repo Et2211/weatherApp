@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`2. App matches snapshot 1`] = `
+<div
+  className="App"
+>
+  <h1
+    className="header"
+  >
+    Wagonex Weather
+  </h1>
+  <div
+    className="container"
+  >
+    <div
+      className="my-5"
+    />
+    <div
+      className="my-5"
+    />
+  </div>
+</div>
+`;
