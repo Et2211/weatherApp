@@ -24,6 +24,17 @@ function App(props) {
   const locations = useSelector(state=>state.locationsReducer.locations) 
   const weather = useSelector(state=>state.weatherReducer.weather) 
 
+  
+  useEffect(()=>{
+    const storedLocation = localStorage.getItem("location");
+    if (storedLocation && storedLocation != '') {
+      setCityName(storedLocation)
+    } else {
+      setCityName('London')
+    }
+
+  }, [])
+
   useEffect(()=>{
     getLocations()
     getWeather(cityId)
