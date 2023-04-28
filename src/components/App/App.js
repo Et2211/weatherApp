@@ -77,7 +77,7 @@ function App(props) {
 
       <div className='container'>
         <div className='my-5'>
-          {locations && Object.keys(locations).length > 0 &&
+          {weather && Object.keys(weather).length > 0 &&
             <CitySelector locations={locations} cityName={cityName} setCityName={setCityName} getWeather={getWeather} error={error} errorMessage={errorMessage}/>
           }
         </div>
