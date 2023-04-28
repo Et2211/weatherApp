@@ -36,7 +36,6 @@ function App(props) {
   }, [])
 
   useEffect(()=>{
-    getLocations()
     getWeather(cityName)
   }, [cityName])
 
